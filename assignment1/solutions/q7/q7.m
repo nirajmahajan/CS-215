@@ -24,7 +24,9 @@ for elem = p
     ans = [ans n-1];
 end
 
-ans
+for elem = 1:length(ans)
+    fprintf('For p=%f ; n = %d\n', p(1,elem), ans(1,elem));
+end
 
 plot(p, ans);
 title('plot of n vs p');
