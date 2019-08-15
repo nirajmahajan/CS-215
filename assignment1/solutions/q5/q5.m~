@@ -1,6 +1,7 @@
 clear;clc;
 x = [-3:0.02:3];
 y = 5*sin(2.2*x + pi/3);
+% y = [1,2,3,4,5,6,7,8,9,10];
 z=y;
 to_corrupt = randperm(length(y), round(0.3*length(y)));
 
@@ -74,6 +75,4 @@ for elem = length(y);
     num_quart = num_quart + ((y_quart(1,elem)-y(1,elem))*(y_quart(1,elem)-y(1,elem)));
     den = den + (y(1,elem) * y(1,elem));
 end
-fprintf('mean = %f\n', num_mean/den);
-fprintf('median = %f\n', num_median/den);
-fprintf('quart = %f\n', num_quart/den);
+fprintf('mean = %f\n', num_mea/den);
