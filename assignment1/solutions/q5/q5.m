@@ -53,27 +53,19 @@ for elem = 1:n
     end
 end
 
-% plot(x,y,'k');
-% hold on;
-% plot(x,z,'m');
-% hold on;
-% plot(x,y_mean,'r');
-% hold on;
-% plot(x,y_median,'b');
-% hold on;
-% plot(x,y_quart,'g');
-% legend('clean','corrupted','mean','median','quartile')
-% 
-% hold off;
+plot(x,y,'g');
+hold on;
+plot(x,z,'c');
+hold on;
+plot(x,y_mean,'r');
+hold on;
+plot(x,y_median,'b');
+hold on;
+plot(x,y_quart,'k');
+legend('clean','corrupted','mean','median','quartile')
 
-% calculate the rms error for mean
-num_mean = 0; num_median = 0; num_quart = 0; den = 0;
-for elem = length(y);
-    num_mean = num_mean + ((y_mean(1,elem)-y(1,elem))*(y_mean(1,elem)-y(1,elem)));
-    num_median = num_median + ((y_median(1,elem)-y(1,elem))*(y_median(1,elem)-y(1,elem)));
-    num_quart = num_quart + ((y_quart(1,elem)-y(1,elem))*(y_quart(1,elem)-y(1,elem)));
-    den = den + (y(1,elem) * y(1,elem));
-end
-fprintf('mean = %f\n', num_mean/den);
-fprintf('median = %f\n', num_median/den);
-fprintf('quart = %f\n', num_quart/den);
+hold off;
+
+fprintf('mean = %f\n', (sum((y_mean-y).^2))/(sum((y.^2))));
+fprintf('median = %f\n', (sum((y_median-y).^2))/(sum((y.^2))));
+fprintf('quartile = %f\n', (sum((y_quart-y).^2))/(sum((y.^2))));
