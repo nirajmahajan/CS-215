@@ -1,7 +1,10 @@
-\contentsline {section}{\numberline {1}Question 1}{3}
-\contentsline {section}{\numberline {2}Question 2}{3}
-\contentsline {section}{\numberline {3}Question 3}{3}
-\contentsline {section}{\numberline {4}Question 4}{3}
-\contentsline {section}{\numberline {5}Question 5}{3}
-\contentsline {section}{\numberline {6}Question 6}{3}
-\contentsline {section}{\numberline {7}Question 7}{4}
+\contentsline {section}{\numberline {1}Question 1}{1}
+\contentsline {section}{\numberline {2}Question 2}{1}
+\contentsline {section}{\numberline {3}Question 3}{1}
+\contentsline {section}{\numberline {4}Question 4}{1}
+\contentsline {section}{\numberline {5}Question 5}{2}
+\contentsline {paragraph}{Usage of MATLAB Code}{4}
+\contentsline {section}{\numberline {6}Question 6}{5}
+\contentsline {paragraph}{Proofs}{6}
+\contentsline {paragraph}{Usage of MATLAB Code}{8}
+\contentsline {section}{\numberline {7}Question 7}{9}
