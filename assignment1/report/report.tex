@@ -102,11 +102,55 @@ Hence the foremost important argument of the defense lawyer must be that the pro
 \section{Question 4}
 We have 
 $$P(C_i)=\frac{1}{3} \quad ,i \in \{1,2,3\}$$
-\subsection{Part A}
+\subsection*{Part A}
+Let $Z_1$ be the event that the contestant chose door 1
+$$\implies P(C_i | Z_1) = \frac{P(C_i \cap Z_1)}{P(Z_1)} = \frac{P(C_i).P(Z_1)}{P(Z_1)}$$
+where $P(C_i \cap Z_1) = P(C_i).P(Z_1)$ as the probability of choosing door 1 is independent of the car being behind door i.\newline
+Hence,
+$$P(C_i|Z_1) = P(Ci) = \frac{1}{3}$$
+\subsection*{Part B}
+Let H3 be the event that the host opened door 3.
+$$\implies P(H_3 | C_i,Z_1) = \frac{P(H_3 \cap C_i,Z_1)}{P(C_i,Z_1)}$$
+Now for i = 1,
+$$\frac{P(H_3 \cap C_1,Z_1)}{P(C_1,Z_1)} = \frac{\frac{1}{2}.\frac{1}{3}.\frac{1}{3}}{\frac{1}{3}.\frac{1}{3}} = \frac{1}{2}$$
+\begin{flushright}
+(This is because if car is behind door, host can open door 2, 3 with equal probability)
+\end{flushright}
+Now for i = 2,
+$$P(H_3 | C_2,Z_1) = \frac{P(H_3 \cap C_2,Z_1)}{P(C_2,Z_1)} = \frac{1.\frac{1}{3}.\frac{1}{3}}{\frac{1}{3}.\frac{1}{3}} = 1$$
+\begin{flushright}
+(This is because if door 1 is chosen and car is behind door 2, host will open door 3 only)
+\end{flushright}
+Now for i = 3,
+$$P(H_3 | C_3,Z_1) = \frac{P(H_3 \cap C_3,Z_1)}{P(C_3,Z_1)} = \frac{0.\frac{1}{3}.\frac{1}{3}}{\frac{1}{3}.\frac{1}{3}} = 0$$
+\begin{flushright}
+(This is because if door 1 is chosen and car is behind door 3,host will never open the door 3)
+\end{flushright}
 
-
-
-
+\subsection*{Part C}
+The conditional probability of winning after switching is $P(C_2 | H_3,Z_1)$
+$$P(C_2|H_3,Z_1) = \frac{P(H_3|C_2,Z_1).P(C_2,Z_1)}{P(H_3, Z_1)}$$
+$$P(C_2|H_3,Z_1) = \frac{P(H_3|C_2,Z_1).P(C_2,Z_1)}{\sum_i[P(H_3|C_i,Z_1).P(C_i,Z_1)]}$$
+$$P(C_2|H_3,Z_1) = \frac{\frac{1}{3}.\frac{1}{3}}{\frac{1}{9}.(1+\frac{1}{2}+0)} = \frac{2}{3}$$
+\subsection*{Part D}
+The conditional probability of winning without switching is $P(C_1 | H_3,Z_1)$
+$$P(C_1|H_3,Z_1) = \frac{P(H_3|C_1,Z_1).P(C_1,Z_1)}{P(H_3, Z_1)}$$
+$$P(C_1|H_3,Z_1) = \frac{P(H_3|C_1,Z_1).P(C_1,Z_1)}{\sum_i[P(H_3|C_i,Z_1).P(C_i,Z_1)]}$$
+$$P(C_1|H_3,Z_1) = \frac{\frac{1}{2}.\frac{1}{9}}{\frac{1}{9}.(1+\frac{1}{2}+0)} = \frac{1}{3}$$
+\subsection*{Part E}
+Clearly the probability of winning after switching is higher than without switching. Hence \textbf{it's always better to switch}.
+\subsection*{Part F}
+In the case, where the host opens any of the two remaining doors, we have
+$$P(H_3|C_i,Z_1) = \frac{P(H_3 \cap C_i, Z_1)}{P(C_i,Z_1)}$$
+$$P(H_3|C_i,Z_1) = \frac{\frac{1}{2}.\frac{1}{3}.\frac{1}{3}}{\frac{1}{3}.\frac{1}{3}} = \frac{1}{2}$$
+This will be independent of the fact that the car is behind which door.\newline\newline
+Now, 
+$$P(C_2|H_3,Z_1) = \frac{P(H_3|C_2,Z_1).P(C_2,Z_1)}{P(H_3,Z_1)}$$
+$$P(C_2|H_3,Z_1) = \frac{\frac{1}{2}.(\frac{1}{3}.\frac{1}{3})}{\frac{1}{9}.(\frac{1}{2}+\frac{1}{2}+\frac{1}{2})} = \frac{1}{3}$$
+And,
+$$P(C_1|H_3,Z_1) = \frac{P(H_3|C_1,Z_1).P(C_1,Z_1)}{P(H_3,Z_1)}$$
+$$P(C_1|H_3,Z_1) = \frac{\frac{1}{2}.\frac{1}{9}}{\frac{1}{9}.(\frac{1}{2}+\frac{1}{2}+\frac{1}{2})} = \frac{1}{3}$$
+Since the probability of winning after switching and not switching is same, it is not beneficial to change the choice
 \newpage
 \section{Question 5}
 A sine wave of the form $y=5sin(2.2x + pi/3)$ is plotted, corrupted and filtered by three methods - moving median filtering, moving average filtering and moving quartile filtering and the \textbf{root mean squared errors} of the outputs of each method are : 
