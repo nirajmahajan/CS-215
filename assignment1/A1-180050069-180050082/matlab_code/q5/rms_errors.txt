@@ -1,0 +1,9 @@
+for 30%
+mean = 99.607732
+median = 28.121810
+quartile = 0.017173
+
+for 60%
+mean = 351.490789
+median = 692.400109
+quartile = 59.808615
