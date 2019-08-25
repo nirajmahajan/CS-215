@@ -114,7 +114,7 @@ $$\implies P(H_3 | C_i,Z_1) = \frac{P(H_3 \cap C_i,Z_1)}{P(C_i,Z_1)}$$
 Now for i = 1,
 $$\frac{P(H_3 \cap C_1,Z_1)}{P(C_1,Z_1)} = \frac{\frac{1}{2}.\frac{1}{3}.\frac{1}{3}}{\frac{1}{3}.\frac{1}{3}} = \frac{1}{2}$$
 \begin{flushright}
-(This is because if car is behind door, host can open door 2, 3 with equal probability)
+(This is because if car is behind door 1, host can open door 2, 3 with equal probability)
 \end{flushright}
 Now for i = 2,
 $$P(H_3 | C_2,Z_1) = \frac{P(H_3 \cap C_2,Z_1)}{P(C_2,Z_1)} = \frac{1.\frac{1}{3}.\frac{1}{3}}{\frac{1}{3}.\frac{1}{3}} = 1$$
@@ -348,7 +348,7 @@ Then increase the value of frequency corresponding to the new data value by 1.\n
 \textbf{Formula}
 \newline
 The number of people 'n' such that any two of them have the same birthday with atleast 'p' probability is given by the inequality
-$$\left(1-\frac{^{365}C_n}{365^n}\right) \leq p$$
+$$\left(1-\frac{^{365}C_n}{365^n}\right) \leq \frac{p}{100}$$
 The situation can be visualized as the negation of the event where all n people have unique birthdays.
 \newline
 The plot of values of n vs p is given in Figure~\ref{fig:7.1}
