@@ -52,23 +52,8 @@ for tx = -10:10
     end
     
     qmi = [qmi stack];
-    % calculate the correlation coefficient
-    mu_first = mean(mean(first));
-    mu_b = mean(mean(b));
-    num=0;
-    den1 = 0;
-    den2 = 0;
-    for row_iter = 1:rows
-        for column_iter = 1:columns
-            first_term = (first(row_iter, column_iter) - mu_first);
-            b_term = (b(row_iter, column_iter) - mu_b);
-            num = num + (first_term * b_term);
-            den1 = den1 + (first_term^2);
-            den2 = den2 + (b_term^2);
-        end
-    end
-    temp = num / (sqrt(den1*den2));
-    corr = [corr, temp];
+    temp = corrcoef(first, b);
+    corr = [corr, temp(1,2)];
 end
 
 figure(1);
@@ -144,23 +129,8 @@ for tx = -10:10
     end
     
     qmi = [qmi stack];
-    % calculate the correlation coefficient
-    mu_first = mean(mean(first));
-    mu_b = mean(mean(b));
-    num=0;
-    den1 = 0;
-    den2 = 0;
-    for row_iter = 1:rows
-        for column_iter = 1:columns
-            first_term = (first(row_iter, column_iter) - mu_first);
-            b_term = (b(row_iter, column_iter) - mu_b);
-            num = num + (first_term * b_term);
-            den1 = den1 + (first_term^2);
-            den2 = den2 + (b_term^2);
-        end
-    end
-    temp = num / (sqrt(den1*den2));
-    corr = [corr, temp];
+    temp = corrcoef(first, b);
+    corr = [corr, temp(1,2)];
 end
 
 figure(3);
