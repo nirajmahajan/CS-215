@@ -17,72 +17,201 @@ Raaghav Raaj \\
 
 \newpage
 \section{Question 5}
-A sine wave of the form $y=5sin(2.2x + pi/3)$ is plotted, corrupted and filtered by three methods - moving median filtering, moving average filtering and moving quartile filtering and the \textbf{root mean squared errors} of the outputs of each method are : 
-\begin{itemize}
-\item 30 percent data corrupted
-	\begin{enumerate}
-	\item \textbf{Moving Median Filtering} = 28.121810
-	\item \textbf{Moving Mean Filtering} = 99.607732
-	\item \textbf{Moving Quartile Filtering} = 0.017173
-	\end{enumerate}
-\item 60 percent data corrupted
-	\begin{enumerate}
-	\item \textbf{Moving Median Filtering} = 692.400109
-	\item \textbf{Moving Mean Filtering} = 351.490789
-	\item \textbf{Moving Quartile Filtering} = 59.808615
-	\end{enumerate}
-\end{itemize}
-The clean sine wave, corrupted wave, and the filtered waves using all three methods are plotted in Figure~\ref{fig:5.1} and Figure~\ref{fig:5.2}.
-
-%\begin{figure}[h!]
-%	\includegraphics[width=\linewidth]{30.jpg}
-%	\caption{30\% data corrupted}
-%	\label{fig:5.1}
-%\end{figure}
-%\begin{figure}[h!]
-%	\includegraphics[width=\linewidth]{60.jpg}
-%	\caption{60\% data corrupted}
-%	\label{fig:5.2}
-%\end{figure}
-\newpage
-From the plots and the root mean square error data, it is clearly evident that the \textbf{moving quartile filtering} method has the \textbf{least root mean square error} and, hence, is the \textbf{best} method of filtering corrupted data.
-\\ \\
-This is because since the data is increased by around 100 when it is corrupted, we need to consider the smallest values in any interval while filtering. 
 
 
-\textbf{Mean} of a data considers even the \textbf{corrupted values} and is heavily \textbf{influenced} by them. Hence we can safely rule out 'mean' as an optimum method for filtering.
- 
- 
-\textbf{Median} of a data considers the middle term and is not influenced as heavily as mean by corruption but still, if \textbf{more than 50 \%} of the data is corrupted then the median will also be a \textbf{corrupted value}, and so we can rule out median as well.
 
-
-\textbf{Quartile} of a dataset focusses on the lower 25\% data by value and we can say that it will \textbf{prioritize} \textbf{the clean (non corrupted) data} in any interval and hence will not get influenced by the corrupted data untill more than 75\% data in an interval has been corrupted.
-\newline\newline
-\textbf{Hence moving quartile filtering is the best way to filter our data.}
-
-\newpage
 \paragraph{Usage of MATLAB Code}
 \begin{itemize}
-\item Load code in the following path 'matlab\_code/q5/q5.m'
+\item Load code in the following path 'matlab\_code/Q5/q5.m'
 \item Run the code
-\item This should output all values of root mean squared error for all three methods, both for 30\% corruption and 60\% corruption.
-\item This should also generate two figures, one containing all the required plots for 30\%corruption and the other for 60\% corruption
+\item This should create two figures simultaneously (probably one on the other, you may have to separate them). They both will iterate over all N values and show the respective histograms and cdfs
+\item After this, two more figures will be created. Both will have MAD plotted against N. But one will have it plotted in the usual way, but the other will have it plotted against semilogx, which will have better visibility.
+\item All plots are inlcuded in this report, at the end, (after question 6).
+\item I have also saved these plots in the directory 'matlab\_code/Q5/jpgs'
 \end{itemize}
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/histograms/5_hist.jpg}
+    \caption{Histogram.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/cdfs/5_cdf.jpg}
+    \caption{More Histogram.}
+  \end{subfigure}
+  \caption{N=5}
+\end{figure}
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/histograms/10_hist.jpg}
+    \caption{Histogram.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/cdfs/10_cdf.jpg}
+    \caption{More Histogram.}
+  \end{subfigure}
+  \caption{N=10}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/histograms/20_hist.jpg}
+    \caption{Histogram.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/cdfs/20_cdf.jpg}
+    \caption{More Histogram.}
+  \end{subfigure}
+  \caption{N=20}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/histograms/50_hist.jpg}
+    \caption{Histogram.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/cdfs/50_cdf.jpg}
+    \caption{More Histogram.}
+  \end{subfigure}
+  \caption{N=50}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/histograms/100_hist.jpg}
+    \caption{Histogram.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/cdfs/100_cdf.jpg}
+    \caption{More Histogram.}
+  \end{subfigure}
+  \caption{N=100}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/histograms/200_hist.jpg}
+    \caption{Histogram.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/cdfs/200_cdf.jpg}
+    \caption{More Histogram.}
+  \end{subfigure}
+  \caption{N=200}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/histograms/500_hist.jpg}
+    \caption{Histogram.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/cdfs/500_cdf.jpg}
+    \caption{More Histogram.}
+  \end{subfigure}
+  \caption{N=500}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/histograms/1000_hist.jpg}
+    \caption{Histogram.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/cdfs/1000_cdf.jpg}
+    \caption{CDF.}
+  \end{subfigure}
+  \caption{N=1000}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/histograms/10000_hist.jpg}
+    \caption{Histogram.}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/cdfs/10000_cdf.jpg}
+    \caption{CDF.}
+  \end{subfigure}
+  \caption{N=10000}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/mad.jpg}
+    \caption{plotted against N}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{jpgs/mad_semilogx.jpg}
+    \caption{plotted against semilogx(N)}
+  \end{subfigure}
+  \caption{MAD}
+\end{figure}
+
+As the value of N increases, the histogram starts resembling a bell curve
+\newpage
 
 
 \newpage
 \section{Question 6}
-\paragraph{•}
+\paragraph{Case I : Comparing Figure 1 and Figure 2\newline}
+The figures given 'T1.jpg' and 'T2.jpg' were loaded in matlab. The second image was shifted by a range from -10 to 10, and the correlation coefficient, and QMI was calculated and plotted for every shift.
+\begin{description}
+\item[Correlation Coefficient] In the first case, we can observe that the plot of correlation coefficient achieves minimum at -1. By the defination, we can say that both the images are aligned 'the best' when the second image is shifted by -1. We can also conclude that the second image is apart by a pixel, as compared to the first image.
+\item[QMI] The QMI is the squared summation of the difference between the joiont pdf and the product of the marginal pdfs. We can say that higher the values of the qmi, more will be the dependence between two images. In our plot, the best value of qmi is obtained when the shift is by -1, which supports our conclusion that the images are a pixel apart. We can also observe that the values of qmi are very low in the first case. This is because there is no 'explicit' relation between the two images.
+\newline
+\end{description}
+
+\paragraph{Case II : Comparing Figure 1 and negative of Figure 1\newline}
+The figures given 'T1.jpg' was loaded in matlab. The negative of the image was stored as another image and was shifted by a range from -10 to 10. The correlation coefficient, and QMI was calculated and plotted for every shift.
+\begin{description}
+\item[Correlation Coefficient] In this first case, we can observe that the plot of correlation coefficient achieves a perfect -1 at a shift of zero. This is because both the images are physically the same, with just negative intensities. So, at zero shift, they will have the most common part and the least correlation coefficient coefficient. As the image is shifter further, the images get more and more misaligned which lead in an increase in the correlation coefficient.
+\item[QMI] In this case, since both the images are just the negative of one another, the peak of the qmi is achieved when the shift is zero. Also, we can see that this qmi plot falls off faster than the one observed in the first case. This is because when we shift by, say tx, then the first tx columns are completely reduced to 0. 
+\end{description}
 
 \paragraph{Usage of MATLAB Code}
 \begin{itemize}
-\item Load code in the following path 'matlab\_code/q6/'
-\item There should be three different matlab files corresponding to the required three fucntions
-\item This is done since MATLAB versions <2016 do not support function declarations in a single script file
-\item Load and run every function in the command line window for testing
+\item Load code in the following path 'matlab\_code/Q6/q6.m'
+\item Run the code.
+\item This will create 4 different plots for - Correlation coefficient, QMI, and both of these again when we compare with the first image with it's negative. 
+\item These plots have been included in the report, as well as can be found in the directory 'matlab\_code/Q6/jpgs'
 \end{itemize}
-\paragraph{Updating the Histogram\newline}
-Let the frequency be plotted on the y axis.\newline
-Then increase the value of frequency corresponding to the new data value by 1.\newline
+
+
+\begin{figure} [h!]
+\includegraphics[width=\linewidth]{corr.jpg}
+\caption{}
+\label{fig:6.1}
+\end{figure}
+
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{qmi.jpg}
+\caption{}
+\label{fig:6.2}
+\end{figure}
+
+\begin{figure} [h!]
+\includegraphics[width=\linewidth]{corr_neg.jpg}
+\caption{}
+\label{fig:6.3}
+\end{figure}
+
+\begin{figure} [h!]
+\includegraphics[width=\linewidth]{qmi_neg.jpg}
+\caption{}
+\label{fig:6.4}
+\end{figure}
+
 
 \end{document}

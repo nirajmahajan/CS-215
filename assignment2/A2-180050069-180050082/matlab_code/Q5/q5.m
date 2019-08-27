@@ -36,8 +36,8 @@ for N_iter = N
     title(sprintf('Histogram of average of random variables, N=%d', N_iter));
     fignamehist = sprintf('%d_hist.fig', N_iter);
     jpgnamehist = sprintf('%d_hist.jpg', N_iter);
-    saveas(figure(1), fignamehist, 'fig');
-    saveas(figure(1), jpgnamehist, 'jpg');
+    // saveas(figure(1), fignamehist, 'fig');
+    // saveas(figure(1), jpgnamehist, 'jpg');
     figure(2);
     [f, x] = ecdf(avg_data);
     plot(x,f);
@@ -48,8 +48,8 @@ for N_iter = N
     legend('Empirical CDF', 'Gaussian CDF');
     fignamecdf = sprintf('%d_cdf.fig', N_iter);
     jpgnamecdf = sprintf('%d_cdf.jpg', N_iter);
-    saveas(figure(2), fignamecdf, 'fig');
-    saveas(figure(2), jpgnamecdf, 'jpg');
+    // saveas(figure(2), fignamecdf, 'fig');
+    // saveas(figure(2), jpgnamecdf, 'jpg');
     hold off;
 %     pause(3);
     
@@ -69,8 +69,8 @@ xlabel('N values');
 ylabel('MAD');
 fignamesml = 'mad_semilogx.fig';
 jpgnamesml = 'mad_semilogx.jpg';
-saveas(figure(3), fignamesml, 'fig');
-saveas(figure(3), jpgnamesml, 'jpg');
+// saveas(figure(3), fignamesml, 'fig');
+// saveas(figure(3), jpgnamesml, 'jpg');
 
 figure(4);
 plot(N, mads);
@@ -79,5 +79,5 @@ xlabel('N values');
 ylabel('MAD');
 figname = 'mad.fig';
 jpgname = 'mad.jpg';
-saveas(figure(4), figname, 'fig');
-saveas(figure(4), jpgname, 'jpg');
+// saveas(figure(4), figname, 'fig');
+// saveas(figure(4), jpgname, 'jpg');
