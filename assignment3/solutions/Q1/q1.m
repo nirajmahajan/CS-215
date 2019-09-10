@@ -24,8 +24,9 @@ hold on;
 plot([1:N_length], n2logn, 'm');
 hold on;
 
-title('X^{(n)} vs NlogN for \theta');
+title('E[X^{(n)}] vs N for \theta');
 xlabel('N');
 ylabel('plots');
-    
+legend('E[X^{(n)}]', 'NlogN', '1.2NlogN');
+legend('Location', 'northwest')
     
