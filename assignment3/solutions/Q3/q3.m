@@ -29,6 +29,7 @@ a=double(ANS(1));
 b=double(ANS(2));
 c=double(ANS(3));
 
+fprintf('The equation of the plane is ax + by + c = Z, where \n');
 fprintf('a = %f\n',a);
 fprintf('b = %f\n',b);
 fprintf('c = %f\n',c);
