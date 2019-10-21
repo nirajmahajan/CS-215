@@ -42,15 +42,17 @@ for N = N_array
             x1 = [-6:0.01:6];
             if(EigenValues(2,2) > EigenValues(1,1))
                 eig_best = EigenVectors(:,2);
+                eig_best_val = EigenValues(2,2);
             else
                 eig_best = EigenVectors(:,1);
+                eig_bes_val = EigenValues(1,1);
             end
             y1 = (eig_best(2)/eig_best(1))*(x1 - TrueMean(1)) + TrueMean(2);
-            plot(x1, y1, 'LineWidth', 2);
+            plot([TrueMean(1),TrueMean(1)+eig_best(1)* eig_best_val],[TrueMean(2),TrueMean(2)+eig_best(2)* eig_best_val], 'LineWidth', 3);
             title(sprintf('Scatter Plot for N = %d',N));
             xlabel('X coordinate');
             ylabel('Y coordinate');
-            saveas(figure(plot_number), sprintf('Scatter_%d.jpg', N));
+%             saveas(figure(plot_number), sprintf('Scatter_%d.jpg', N));
             plot_number = plot_number + 1;
         end
     end
@@ -65,5 +67,5 @@ xlabel('log(N)');
 subplot(2,1,2), boxplot(Variance_errors);
 title('Boxplot for errors in Covariance');
 xlabel('log(N)');
-saveas(figure(plot_number), 'BoxPlots.jpg')
+% saveas(figure(plot_number), 'BoxPlots.jpg')
 plot_number = plot_number + 1;
