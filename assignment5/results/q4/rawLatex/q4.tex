@@ -1,0 +1,106 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[margin = 1in, top=1.3in]{geometry}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage[font=small,labelfont=bf]{caption}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\small{Niraj Mahajan (180050069)\\ Raaghav Raaj (180050082)}}
+\lhead{CS-215 Assignment-5 : Question 4}
+\rfoot{Page 4.\thepage}
+ 
+\begin{document}
+\section*{Question 4}
+Given a \textbf{X} $\sim$ U(0, $\theta$), where $\theta$ has a Pareto prior Distribution, with scale parameter $\theta_m$ and shape parameter $\alpha$ with
+\[   
+P(\theta) = 
+     \begin{cases}
+       \alpha \frac{\theta^\alpha_m}{\theta^{\alpha + 1}} & if \theta > \theta_m\\
+              0 & otherwise\\
+     \end{cases}
+\]
+
+\subsection*{5.1 : Part A : MLE, MAP}
+For MLE,  \\
+\[   
+P(x_i |_\theta) = 
+     \begin{cases}
+       \frac{1}{\theta} & if \theta \geq x_i \geq 0\\
+              0 & otherwise\\
+     \end{cases}
+\]
+Hence the Likelihood is given by -
+\begin{align*}
+Likelihood &= P(x_1 |_\theta) . P(x_2 |_\theta) ... P(x_n |_\theta) \\
+\Longrightarrow Posterior &= P(\{x_i\} |_\theta) \\
+\Longrightarrow Likelihood &= \theta^{-n}
+\end{align*}
+Now, to maximize this likelihood, theta must be smallest. But we know that theta has to be atleast as large as the largest value of the input data X.\\
+Hence
+$$
+\boxed{\mathbf{\hat{\theta}^{MLE} = max\{X_i\}}}
+$$
+
+For the Posterior,
+\begin{align*}
+Posterior &\propto P(\theta) \;\; . \;\; P(\{x_i\} |_\theta) \\
+\Longrightarrow Posterior &\propto \alpha \frac{\theta^\alpha_m}{\theta^{\alpha + 1}} \;\; . \;\; \theta^{-n} \\
+\Longrightarrow Posterior &\propto 
+     \begin{cases}
+       \theta^{-(n+\alpha + 1)} & if \;\; \theta > \theta_m \\
+              0 & otherwise\\
+     \end{cases}
+\end{align*}
+Now, to maximize this posterior, theta must be smallest, but greater than $\theta_m$, since the posterior is zero at all other points. \\ But we know that theta has to be atleast as large as the largest value of the input data X.\\
+Hence
+$$
+\boxed{\mathbf{\hat{\theta}^{MAP} = max\{\theta_m \; , \; max\{X_i\}\}}}
+$$
+Now, the posterior takes the form of another pareto distribution. We know that for a pareto distribution, the mode is the scale parameter. \\
+Hence,
+$$
+Posterior = P(\theta|_{\{x_i\}}) = Pareto[(n+\alpha), max\{\theta_m \; , \; max\{X_i\}\}]
+$$
+
+\newpage
+\subsection*{5.2 : Part B}
+As n $\rightarrow$ $\infty$, we can obviously have a value of $\theta_m$ that is greater than all the values in the data set. (For example, we take $\theta_m$ as \lq 1\rq greater than the max input data value) \\ \\ 
+In this case, 
+\begin{align*}
+&\hat{\theta}^{MAP} = max\{\theta_m \; , \; max\{X_i\}\} \\
+&\hat{\theta}^{MAP} \rightarrow \theta_m \\
+\Longrightarrow \;\; &\hat{\theta}^{MAP} \neq max\{X_i\} \neq \hat{\theta}^{MLE}
+\end{align*}
+This is undesirable and \textbf{not a very good prior} since it is not converging to the MLE. As the sample size increases to infinity, MLE is the most efficient and accurate estimator. Since given the liberty of such large datasets, any estimator should give the best possible result, and hence should converge to MLE.
+
+\subsection*{5.3 : Part C}
+For a pareto distribution with parameters $\theta_m$ and $\alpha$, mean can be calculated as, \\
+\begin{align*}
+Mean &= \int_{\theta_m}^\infty\theta \;\; . \;\; \alpha \frac{\theta^\alpha_m}{\theta^{\alpha + 1}} \; d\theta \\
+Mean &= \alpha \; .\; \theta^\alpha_m \int_{\theta_m}^\infty \theta^{-\alpha + 1} \; d\theta \\
+Mean &= \frac{\alpha \; \theta^\alpha_m}{\alpha - 1}
+\end{align*}
+
+Hence for our posterior, we just have to substitute different parameters in the above obtained result.
+$$
+Posterior = P(\theta|_{\{x_i\}}) = Pareto[(n+\alpha), max\{\theta_m \; , \; max\{X_i\}\}]
+$$
+$$
+\boxed{Posterior Mean = \frac{(\alpha + n) \; . \; (max\{\theta_m \; , \; max\{X_i\}\})^\alpha}{\alpha + n - 1}}
+$$
+
+\subsection*{5.4 : Part D}
+Now as n $\rightarrow$ $\infty$, 
+$$
+Posterior \; Mean \;\; \rightarrow max\{\theta_m \; , \; max\{X_i\}\}
+$$
+Giving a similar argument as given in part B, we can conclude that as the sample size increases, the posterior mean will not converge to $\hat{\theta^{MLE}}$ \\ 
+Again this is \textbf{not desirable} since the mean isn't converging to MLE and since MLE is the best possible estimate at large sample size, it always is desirable that the estimate converges to MLE for large data.
+
+
+\end{document}
